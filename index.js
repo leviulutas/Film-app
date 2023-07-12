@@ -2,7 +2,7 @@ let movieNameRef = document.getElementById("movie-name");
 let searchBtn = document.getElementById("search-btn");
 let result = document.getElementById("result");
 
-//function to fetch data from api
+
 let getMovie = () => {
   let movieName = movieNameRef.value;
   
@@ -13,7 +13,7 @@ let getMovie = () => {
   
   let url = `https://api.themoviedb.org/3/search/movie?api_key=72aa5b9b9ee9eb6b01664274b78f344d&query=${movieName}`;
   
-  //if input isn't empty
+
   fetch(url)
     .then((resp) => {
       if (!resp.ok) {
@@ -49,7 +49,6 @@ let getMovie = () => {
           <p>${data.Actors}</p>
         `;
       } else {
-        //if movie doesn't exist in the database
         result.innerHTML = `<h3 class="msg">${data.Error}</h3>`;
       }
     })
